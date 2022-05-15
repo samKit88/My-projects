@@ -1,1 +1,2 @@
-My second file updated
+My first readme
+ALX course is great
