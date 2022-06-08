@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 let count = 0
 
@@ -14,6 +14,16 @@ const Todo = () => {
     todoItem.current.value = ''
     console.log(todoItem.current.value)
   }
+
+  useEffect(() => {
+    setTodos(JSON.parse(localStorage.getItem('todos')))
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }, 100)
+  }, [todos])
 
   return (
     <div className="todo">
